@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="ragistation.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <form id="signupForm" action="/register" method="POST" enctype="multipart/form-data">
+        <h2>Sign Up</h2>
+
+        <!-- Role Selection -->
+        <div class="input-group">
+          
+          
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa fa-user"></i> Full Name</label>
+          <input type="text" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa fa-envelope"></i> Email</label>
+          <input type="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa fa-lock"></i> Password</label>
+          <input type="password" name="password" id="password" placeholder="Enter password" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa fa-key"></i> Confirm Password</label>
+          <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Repeat password" required>
+          <small id="passwordMessage"></small>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa fa-info-circle"></i> About You</label>
+          <textarea name="about" placeholder="Write something about yourself..."></textarea>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa fa-file"></i> Upload Certificates</label>
+          <input type="file" name="certificates" multiple>
+        </div>
+
+        <div class="input-group checkbox">
+          <input type="checkbox" required> I agree to the <a href="#">Terms of Service</a>
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
+
+    <!-- Right Side Illustration -->
+    <div class="image-container">
+      <img src="https://thumbs.dreamstime.com/b/businessman-filling-online-registration-form-s-hand-laptop-147831246.jpg" alt="Signup Illustration">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+  const toggleBtn = document.getElementById('toggleTheme');
+  const body = document.body;
+  const formContainer = document.querySelector('.form-container');
+
+  function setTheme(isDark) {
+    if (isDark) {
+      body.classList.add('dark-mode');
+      body.classList.remove('light-mode');
+      formContainer.classList.add('dark-mode');
+      formContainer.classList.remove('light-mode');
+      toggleBtn.textContent = 'Light Mode ☀️';
+    } else {
+      body.classList.add('light-mode');
+      body.classList.remove('dark-mode');
+      formContainer.classList.add('light-mode');
+      formContainer.classList.remove('dark-mode');
+      toggleBtn.textContent = 'Dark Mode 🌙';
+    }
+  }
+
+  // Default to light mode
+  setTheme(false);
+
+  toggleBtn.addEventListener('click', () => {
+    setTheme(!body.classList.contains('dark-mode'));
+  });
+</script>
+</body>
+</html>

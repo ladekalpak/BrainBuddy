@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses | Smart School Tutor</title>
+  <link rel="stylesheet" href="library.css">
+</head>
+<body>
+
+<header>
+  <h1>All Courses</h1>
+  <!-- Add Course Button (shown only if teacher logged in) -->
+  <button id="add-course-btn" style="display:none;">+ Add New Course</button>
+</header>
+
+<div class="container" id="course-list">
+  <!-- Courses will load here -->
+</div>
+
+<script>
+  // 👉 Replace this with your actual backend login role check
+  // Example: role comes from session/localStorage after login
+  const userRole = "teacher"; // "teacher" OR "student"
+
+  // Show Add Course button only for teachers
+  if (userRole === "teacher") {
+    document.getElementById("add-course-btn").style.display = "block";
+    document.getElementById("add-course-btn").onclick = () => {
+      window.location.href = "add-course.html"; // page where teacher adds a course
+    };
+  }
+
+  // Sample course data (replace with fetch from backend API)
+  const courses = [
+    {id: 1, title: "Mathematics for Class 10", teacher: "Mr. Sharma", price: "₹499", img: "https://picsum.photos/400/200?math"},
+    {id: 2, title: "Physics Fundamentals", teacher: "Dr. Verma", price: "₹10", img: "https://picsum.photos/400/200?physics"},
+    {id: 3, title: "Chemistry Basics", teacher: "Mrs. Gupta", price: "₹299", img: "https://picsum.photos/400/200?chemistry"},
+    {id: 4, title: "English Grammar Mastery", teacher: "Ms. Khan", price: "₹199", img: "https://picsum.photos/400/200?english"}
+  ];
+
+  const container = document.getElementById("course-list");
+
+  courses.forEach(course => {
+    const card = document.createElement("div");
+    card.className = "course-card";
+    card.innerHTML = `
+      <img src="${course.img}" alt="${course.title}">
+      <div class="course-title">${course.title}</div>
+      <div class="course-teacher">By ${course.teacher}</div>
+      <div class="course-price">${course.price}</div>
+      <a href="course-details.html?id=${course.id}" class="btn">View Course</a>
+    `;
+    container.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
+

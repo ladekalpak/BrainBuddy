@@ -1,0 +1,65 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f8cdda, #1d2b64); /* purple-pink gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container */
+.container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  width: 320px;
+  animation: fadeIn 1s ease;
+}
+
+h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #4a148c; /* deep purple */
+  font-weight: bold;
+}
+
+/* Role Buttons */
+.role-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.role-btn {
+  display: block;
+  padding: 14px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* purple-blue gradient */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+}
+
+.role-btn:hover {
+  background: linear-gradient(135deg, #ff6a00, #ee0979); /* orange-pink on hover */
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
